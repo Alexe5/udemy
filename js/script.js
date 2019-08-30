@@ -80,10 +80,28 @@ let appData = {
         }
     },
     chooseIncome: function() {
-        let items = prompt('Что принесет дополнительный доход? (Перечислите через запятую)', '');
+
+        for (let i = 0; i < 1; i++) {
+            let items = prompt('Что принесет дополнительный доход? (Перечислите через запятую)', '');
+            if ( (typeof(items)) === 'string' && items != '' && items != null) {
+                console.log('great');
+                console.log(i);
+            } else {
+                console.log('not great');
+                if (i == 0) {
+                    i = -1;
+                } else {
+                    i--;
+                }
+                console.log(i);
+                console.log(items);
+            }
+        }
+
         appData.income = items.split(', ');
         appData.income.push(prompt('Может что-то еще?)', ''));
         appData.income.sort();
+        // console.log(typeof items);
     }
 };
 
